@@ -191,9 +191,13 @@ PrefabInstance:
       value: Wave
       objectReference: {fileID: 0}
     - target: {fileID: 8102554272573004807, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
+      propertyPath: Logging
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102554272573004807, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
       propertyPath: Movement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1562207154}
     - target: {fileID: 8102554273915112833, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
@@ -674,6 +678,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+--- !u!114 &1562207154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7111100855425776259, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+  m_PrefabInstance: {fileID: 1562207153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b59b5148bc85514087aad653bec37d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1752267792
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class PlayerInputProcessor : InputProcessor
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         ProcessUse();
     }
@@ -21,6 +21,5 @@ public class PlayerInputProcessor : InputProcessor
     public void OnUse(InputAction.CallbackContext context)
     {
         used = context.performed;
-        Debug.Log("Use");
     }
 }
