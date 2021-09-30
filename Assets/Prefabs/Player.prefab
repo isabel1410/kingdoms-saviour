@@ -93,9 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7111100855425776258}
   - component: {fileID: 7111100855425776259}
-  - component: {fileID: 7111100855425776256}
   - component: {fileID: 7111100855425776262}
-  - component: {fileID: 7111100855425776257}
   - component: {fileID: 7111100855425776263}
   m_Layer: 0
   m_Name: Player
@@ -112,8 +110,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7111100855425776269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -40}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 7111100855417419390}
   m_Father: {fileID: 0}
@@ -131,33 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b59b5148bc85514087aad653bec37d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Waypoints: []
   Speed: 5
---- !u!114 &7111100855425776256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111100855425776269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4650cc3407a19a941a6c01a1ddbc876c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Waypoints: {fileID: 0}
-  XYZConstraint: 0
-  AutoStart: 1
-  MoveSpeed: 4
-  LookAtSpeed: 3
-  StartIndex: 0
-  AutoPositionAtStart: 1
-  StartTravelDirection: 0
-  EndReachedBehavior: 0
-  StartingMovementType: 0
 --- !u!65 &7111100855425776262
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,21 +144,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7111100855425776257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111100855425776269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561c9da02d20c474e9538bce28c6983c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Waves:
-  - {fileID: 0}
-  Traveler: {fileID: 7111100855425776256}
 --- !u!54 &7111100855425776263
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,9 +154,9 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

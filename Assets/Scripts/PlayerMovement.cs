@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public Transform[] Waypoints;
     public float Speed;
-    public int currentWaypoint;
+    
+    private int currentWaypoint;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +59,7 @@ public class Movement : MonoBehaviour
     private void RotateTowardsWaypoint(Transform waypoint)
     {
         var targetRot = Quaternion.LookRotation(waypoint.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, .01f);/*
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 1.5f * Time.deltaTime);/*
         return;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(waypoint.position), .1f);
         return;
