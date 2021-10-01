@@ -43,3 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1f11acae735d846bb1ec2206861738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseAnimation: {fileID: 0}
+  SwitchFromAnimation: {fileID: 0}
+  SwitchToAnimation: {fileID: 0}
+  Cooldown: 1
+  SwitchFromCooldown: 0
+  SwitchToCooldown: 0
+  Ready: 0
+  Damage: 1.5

@@ -1,13 +1,14 @@
 public class HealthPotion : Potion
 {
-    public float AddedHealth;
+    public float AddedHealthPercentage;
 
     /// <summary>
-    /// Adds <see cref="AddedHealth"/> to the player.
+    /// Adds <see cref="AddedHealthPercentage"/> to the player.
     /// </summary>
     public override void Use()
     {
-        base.Use();
+        if (Amount != 0)
+            base.Use();
         //Add health to player
         throw new System.NotImplementedException("Add health to player not implemented.");
     }

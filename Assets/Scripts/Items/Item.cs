@@ -6,9 +6,9 @@ public abstract class Item : MonoBehaviour
     public Animation UseAnimation;
     public Animation SwitchFromAnimation;
     public Animation SwitchToAnimation;
-    public byte Cooldown;
-    public byte SwitchFromCooldown;
-    public byte SwitchToCooldown;
+    public float Cooldown;
+    public float SwitchFromCooldown;
+    public float SwitchToCooldown;
 
     [HideInInspector]
     public bool Ready;
