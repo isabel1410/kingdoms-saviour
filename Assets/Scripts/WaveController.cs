@@ -27,9 +27,9 @@ public class WaveController : MonoBehaviour
         {
             if (!loaded)
             {
-#if (UNITY_EDITOR)
+
                 enemies.SetActive(true);
-#endif
+
                 loaded = true;
 #if (UNITY_EDITOR)
                 if (Logging)
