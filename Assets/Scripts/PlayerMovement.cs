@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     
     private int currentWaypoint;
+    public PlayerInputProcessor InputProcessor;
 
     // Start is called before the first frame update
     void Start()

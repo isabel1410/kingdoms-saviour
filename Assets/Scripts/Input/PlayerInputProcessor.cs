@@ -1,25 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerInputProcessor : InputProcessor
 {
-    private bool used;
+    public PauseEvent OnPause;
 
-    public override void ProcessUse()
+    public void OnUseInput(InputAction.CallbackContext context)
     {
-        Used = used;
+        if (context.started)
+        {
+            base.OnUse.Invoke();
+        }
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void OnShieldUseInput(InputAction.CallbackContext context)
     {
-        ProcessUse();
+        if (context.started)
+        {
+            ShieldUsed = true;
+        }
+        else if (context.canceled)
+        {
+            ShieldUsed = false;
+        }
     }
 
-    public void OnUse(InputAction.CallbackContext context)
+    public void OnPauseInput(InputAction.CallbackContext context)
     {
-        used = context.performed;
+        if (context.started)
+        {
+            OnPause.Invoke();
+        }
     }
 }
+
+[System.Serializable]
+public class PauseEvent : UnityEvent { }

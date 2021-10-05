@@ -10,17 +10,13 @@ public class PlayerItems : MonoBehaviour
         CurrentItem = "Sword";
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void OnUse()
     {
-        ProcessUse();
+        Debug.Log(CurrentItem + " used.");
     }
 
-    private void ProcessUse()
+    public void OnShieldUse(bool used)
     {
-        if (InputProcessor.Used)
-        {
-            Debug.Log("Used " + CurrentItem);
-        }
+        Debug.Log("Shield " + (used ? "raised" : "lowered") + ".");
     }
 }
