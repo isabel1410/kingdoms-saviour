@@ -7,6 +7,7 @@ public class WaveController : MonoBehaviour
     public bool Logging;
 #endif
 
+    [SerializeField] Animator animator;
     private GameObject enemies;
     private bool loaded;
 
@@ -18,6 +19,9 @@ public class WaveController : MonoBehaviour
         //Hide on start
         enemies.SetActive(false);
         loaded = false;
+
+        // Enemies won't perform animations on start
+        animator.SetBool("Triggered", false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +33,6 @@ public class WaveController : MonoBehaviour
             {
 
                 enemies.SetActive(true);
-
                 loaded = true;
 #if (UNITY_EDITOR)
                 if (Logging)
@@ -40,6 +43,7 @@ public class WaveController : MonoBehaviour
             }
             else
             {
+                animator.SetBool("Triggered", true);
                 Movement.Speed = 0;
 #if (UNITY_EDITOR)
                 if (Logging)
