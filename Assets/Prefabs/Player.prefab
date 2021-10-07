@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waypoints: []
   Speed: 5
+  InputProcessor: {fileID: 1140932495397712402}
 --- !u!65 &7111100855425776262
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,7 +176,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8256c899870c944a4381216189d1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Used: 0
+  OnUse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144302761663370792}
+        m_TargetAssemblyTypeName: PlayerItems, Assembly-CSharp
+        m_MethodName: OnUse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnShieldUse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144302761663370792}
+        m_TargetAssemblyTypeName: PlayerItems, Assembly-CSharp
+        m_MethodName: OnShieldUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPause:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7780826058838154655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +238,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1140932495397712402}
         m_TargetAssemblyTypeName: PlayerInputProcessor, Assembly-CSharp
-        m_MethodName: OnUse
+        m_MethodName: OnUseInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -242,7 +275,19 @@ MonoBehaviour:
     m_ActionId: 79884b3a-0a0e-4994-b6f9-4cf36af1e3f4
     m_ActionName: Player/Select Potion 3[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1140932495397712402}
+        m_TargetAssemblyTypeName: PlayerInputProcessor, Assembly-CSharp
+        m_MethodName: OnShieldUseInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 81bbb785-6902-40d6-8393-8226736b42f2
     m_ActionName: Player/Raise Shield[/Keyboard/space]
   - m_PersistentCalls:

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public abstract class InputProcessor : MonoBehaviour
 {
     public UseEvent OnUse;
-    public ShieldUseChangedEvent OnShieldUseChanged;
+    public ShieldUseEvent OnShieldUse;
     private bool shieldUsed;
 
     public bool ShieldUsed
@@ -16,7 +16,7 @@ public abstract class InputProcessor : MonoBehaviour
         set
         {
             shieldUsed = value;
-            OnShieldUseChanged.Invoke(value);
+            OnShieldUse.Invoke(value);// True
         }
     }
 }
@@ -25,4 +25,4 @@ public abstract class InputProcessor : MonoBehaviour
 public class UseEvent: UnityEvent { }
 
 [System.Serializable]
-public class ShieldUseChangedEvent : UnityEvent<bool> { }
+public class ShieldUseEvent : UnityEvent<bool> { }

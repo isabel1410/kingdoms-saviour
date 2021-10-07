@@ -2,56 +2,41 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    public PlayerMovement Movement;
-#if (UNITY_EDITOR)
-    public bool Logging;
-#endif
+    public PlayerMovement PlayerMovement;
+    public Animator Animator;
 
-    [SerializeField] Animator animator;
     private GameObject enemies;
-    private bool loaded;
+
+    /// <summary>
+    /// Activates the enemies in the wave.
+    /// </summary>
+    public void Activate()
+    {
+        if (Animator != null)
+            Animator.SetBool("Triggered", true);
+        PlayerMovement.PauseMovement();
+        Debug.Log(name + " activated");
+    }
+
+    /// <summary>
+    /// Loads the enemies in the wave.
+    /// </summary>
+    public void Load()
+    {
+        enemies.SetActive(true);
+        Debug.Log(name + " loaded");
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
         enemies = transform.Find("Enemies").gameObject;
 
-        //Hide on start
+        // Hide on start (useful for editing puroposes)
         enemies.SetActive(false);
-        loaded = false;
 
         // Enemies won't perform animations on start
-        animator.SetBool("Triggered", false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //Check if collider belongs to player (prevent arrows and such from activating wave)
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (!loaded)
-            {
-
-                enemies.SetActive(true);
-                loaded = true;
-#if (UNITY_EDITOR)
-                if (Logging)
-                {
-                    Debug.Log(name + " loaded");
-                }
-#endif
-            }
-            else
-            {
-                animator.SetBool("Triggered", true);
-                Movement.Speed = 0;
-#if (UNITY_EDITOR)
-                if (Logging)
-                {
-                    Debug.Log(name + " activated");
-                }
-#endif
-            }
-        }
+        if (Animator != null)
+            Animator?.SetBool("Triggered", false);
     }
 }

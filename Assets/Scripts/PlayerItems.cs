@@ -3,10 +3,13 @@ using UnityEngine;
 public class PlayerItems : MonoBehaviour
 {
     public InputProcessor InputProcessor;
+
     private string CurrentItem;
 
     private void Start()
     {
+        // Update required
+        // Maybe select item from previous level?
         CurrentItem = "Sword";
     }
 
@@ -15,8 +18,8 @@ public class PlayerItems : MonoBehaviour
         Debug.Log(CurrentItem + " used.");
     }
 
-    public void OnShieldUse(bool used)
+    public void OnShieldUse(bool raised)// Always false
     {
-        Debug.Log("Shield " + (used ? "raised" : "lowered") + ".");
+        Debug.Log("Shield " + (raised ? "raised" : "lowered") + ".");
     }
 }

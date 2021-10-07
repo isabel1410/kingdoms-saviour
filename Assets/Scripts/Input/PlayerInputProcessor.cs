@@ -9,7 +9,7 @@ public class PlayerInputProcessor : InputProcessor
     {
         if (context.started)
         {
-            base.OnUse.Invoke();
+            OnUse.Invoke();
         }
     }
 
