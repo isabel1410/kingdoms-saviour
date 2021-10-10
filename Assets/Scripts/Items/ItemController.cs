@@ -20,7 +20,11 @@ public class ItemController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(items[0].ToString());
+        //Debug.Log(items[0].ToString());
+        foreach (var item in items)
+        {
+            Debug.Log(item);
+        }
     }
 
     public void SwitchToSword()
