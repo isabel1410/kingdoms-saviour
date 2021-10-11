@@ -7,7 +7,7 @@ public class RouteMovement : MonoBehaviour
     public PlayerMovement playerMovement;
     public List<Transform> leftRouteWaypoints;
     public List<Transform> rightRouteWaypoints;
-    public bool currentWayPointIsRoute;// Why?
+    public bool currentWayPointIsRoute;
 
     // Start is called before the first frame update
     private void Start()

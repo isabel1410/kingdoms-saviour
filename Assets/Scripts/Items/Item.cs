@@ -4,8 +4,10 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public Animation UseAnimation;
-    public Animation SwitchFromAnimation;
-    public Animation SwitchToAnimation;
+    public Animator Animator;
+
+    //public Animation SwitchFromAnimation;
+    //public Animation SwitchToAnimation;
     public float Cooldown;
     public float SwitchFromCooldown;
     public float SwitchToCooldown;
@@ -21,11 +23,17 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     /// <param name="fromItem"></param>
     /// <param name="item"></param>
-    public static void Switch(Item fromItem, Item toItem)
+
+    public void Switch(Item item, int itemIndex)
     {
-        fromItem.SwitchFrom();
-        while (!fromItem.Ready) { }
-        toItem.SwitchTo();
+        if (Animator != null)
+            Animator.SetInteger("WeaponHolding", itemIndex);
+        SwitchFrom();
+        while (!Ready)
+        {
+
+        }
+        item.SwitchTo();
     }
 
     /// <summary>
@@ -34,7 +42,8 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     public virtual void Use()
     {
-        UseAnimation?.Play();
+        if (Animator != null)
+            Animator.SetBool("IsAttacking", true);
         Ready = false;
         cooldownTimer.Interval = Cooldown;
         cooldownTimer.Start();
@@ -46,7 +55,7 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     private void SwitchFrom()
     {
-        SwitchFromAnimation?.Play();
+        //SwitchFromAnimation?.Play();
         Ready = false;
         cooldownTimer.Interval = SwitchFromCooldown;
         cooldownTimer.Start();
@@ -58,7 +67,7 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     private void SwitchTo()
     {
-        SwitchToAnimation?.Play();
+        //SwitchToAnimation?.Play();
         Ready = false;
         cooldownTimer.Interval = SwitchToCooldown;
         cooldownTimer.Start();
@@ -68,6 +77,7 @@ public abstract class Item : MonoBehaviour
     {
         cooldownTimer = new Timer();
         cooldownTimer.Elapsed += CooldownTimer_Elapsed;
+        Animator = GetComponent<Animator>();
     }
 
     private void CooldownTimer_Elapsed(object sender, ElapsedEventArgs e)

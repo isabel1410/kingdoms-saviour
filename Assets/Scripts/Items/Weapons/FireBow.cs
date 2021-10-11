@@ -23,14 +23,10 @@ public class FireBow : Weapon
         base.Use();
         ////Deal damage to enemy
         //throw new System.NotImplementedException("Deal damage to enemy.");
-
-        if (currentWeapon)
+        Debug.Log("Fire arrow fired");
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
         {
-            Debug.Log("Fire arrow fired");
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-            {
-                Debug.Log(hit.transform.name);
-            }
+            Debug.Log(hit.transform.name);
         }
     }
 }

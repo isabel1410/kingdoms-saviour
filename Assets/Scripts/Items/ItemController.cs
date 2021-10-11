@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,40 +12,41 @@ public class ItemController : MonoBehaviour
     {
         items = new Item[]
         {
-            new Sword("Sword", 15f, 10f),
-            new Bow("Bow", 10f, 50f),
-            new FireBow("Firebow", 10f, 50f)
+            Instantiate(Resources.Load<Sword>("Prefabs/Items/Weapons/Sword")),
+            Instantiate(Resources.Load<Bow>("Prefabs/Items/Weapons/Bow")),
+            Instantiate(Resources.Load<FireBow>("Prefabs/Items/Weapons/Fire Bow"))
         };
         currentItem = items[0];
     }
 
     private void Update()
     {
-        //Debug.Log(items[0].ToString());
-        foreach (var item in items)
-        {
-            Debug.Log(item);
-        }
+        Debug.Log(currentItem);
     }
 
     public void SwitchToSword()
     {
-        Debug.Log("Sword selected!");
-        Item.Switch(currentItem, items[0]);
+        currentItem.Switch(items[0], 1);
         currentItem = items[0];
+        Debug.Log("Sword selected!");
     }
 
     public void SwitchToBow()
     {
-        Debug.Log("Bow selected!");
-        Item.Switch(currentItem, items[1]);
+        currentItem.Switch(items[1], 2);
         currentItem = items[1];
+        Debug.Log("Bow selected!");
     }
 
     public void SwitchToFireBow()
     {
-        Debug.Log("Fire bow selected!");
-        Item.Switch(currentItem, items[2]);
+        currentItem.Switch(items[2], 3);
         currentItem = items[2];
+        Debug.Log("Fire bow selected!");
+    }
+
+    public void UseItem()
+    {
+        currentItem.Use();
     }
 }
