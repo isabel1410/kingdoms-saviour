@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2278156056421803275}
-  - component: {fileID: 363250556554913699}
+  - component: {fileID: 1042245232082576377}
+  - component: {fileID: 5575342199447011189}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -31,7 +32,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &363250556554913699
+--- !u!95 &1042245232082576377
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421217258921937379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f72864441b6e7ce43aab38ab093dd206, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5575342199447011189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +63,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1f11acae735d846bb1ec2206861738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAnimation: {fileID: 0}
-  SwitchFromAnimation: {fileID: 0}
-  SwitchToAnimation: {fileID: 0}
+  Animator: {fileID: 1042245232082576377}
   Cooldown: 1
-  SwitchFromCooldown: 0
-  SwitchToCooldown: 0
+  SwitchFromCooldown: 0.5
+  SwitchToCooldown: 0.5
   Ready: 0
+  Name: Sword
   Damage: 1.5
+  Range: 15
+  currentWeapon: {fileID: 5575342199447011189}

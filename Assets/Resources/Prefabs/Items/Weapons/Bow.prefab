@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2278156056421803275}
   - component: {fileID: 4711616145685354660}
+  - component: {fileID: -1640576045279200651}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -43,11 +44,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dfdc62b219ca2499b69c55d83002fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAnimation: {fileID: 0}
-  SwitchFromAnimation: {fileID: 0}
-  SwitchToAnimation: {fileID: 0}
+  Animator: {fileID: -1640576045279200651}
   Cooldown: 2
-  SwitchFromCooldown: 0
-  SwitchToCooldown: 0
+  SwitchFromCooldown: 1
+  SwitchToCooldown: 1
   Ready: 0
+  Name: Bow
   Damage: 1
+  Range: 30
+  currentWeapon: {fileID: 4711616145685354660}
+--- !u!95 &-1640576045279200651
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421217258921937379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f72864441b6e7ce43aab38ab093dd206, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

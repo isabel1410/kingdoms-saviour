@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public Animation UseAnimation;
+    //public Animation UseAnimation;
     public Animator Animator;
 
     //public Animation SwitchFromAnimation;
@@ -26,13 +26,16 @@ public abstract class Item : MonoBehaviour
 
     public void Switch(Item item, int itemIndex)
     {
+        //if (Animator.gameObject.activeSelf)
+        //{
+        //    Animator.SetInteger("WeaponHolding", itemIndex);
+        //}
         if (Animator != null)
-            Animator.SetInteger("WeaponHolding", itemIndex);
-        SwitchFrom();
-        while (!Ready)
         {
-
+            Animator.SetInteger("WeaponHolding", itemIndex);
         }
+        Debug.Log(itemIndex);
+        SwitchFrom();
         item.SwitchTo();
     }
 
@@ -42,8 +45,14 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     public virtual void Use()
     {
+        //if (Animator.gameObject.activeSelf)
+        //{
+        //    Animator.SetBool("IsAttacking", true);
+        //}
         if (Animator != null)
+        {
             Animator.SetBool("IsAttacking", true);
+        }
         Ready = false;
         cooldownTimer.Interval = Cooldown;
         cooldownTimer.Start();
@@ -77,7 +86,7 @@ public abstract class Item : MonoBehaviour
     {
         cooldownTimer = new Timer();
         cooldownTimer.Elapsed += CooldownTimer_Elapsed;
-        Animator = GetComponent<Animator>();
+        //Animator = GetComponent<Animator>();
     }
 
     private void CooldownTimer_Elapsed(object sender, ElapsedEventArgs e)

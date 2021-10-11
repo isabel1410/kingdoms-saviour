@@ -4,7 +4,7 @@ public class FireBow : Weapon
 {
     public byte Ammo;
     public RaycastHit hit;
-    public Camera playerCamera;
+    //public Camera playerCamera;
 
     public FireBow(string name, float damage, float range)
     {
@@ -24,9 +24,9 @@ public class FireBow : Weapon
         ////Deal damage to enemy
         //throw new System.NotImplementedException("Deal damage to enemy.");
         Debug.Log("Fire arrow fired");
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        {
-            Debug.Log(hit.transform.name);
-        }
+        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
+        //{
+        //    Debug.Log(hit.transform.name);
+        //}
     }
 }
