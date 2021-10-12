@@ -14,9 +14,9 @@ public class ItemController : MonoBehaviour
 
     private void Start()
     {
-        Sword sword = Instantiate(Resources.Load<Sword>("Prefabs/Items/Weapons/Sword"));
-        Bow bow = Instantiate(Resources.Load<Bow>("Prefabs/Items/Weapons/Bow"));
-        FireBow fireBow = Instantiate(Resources.Load<FireBow>("Prefabs/Items/Weapons/Fire Bow"));
+        Sword sword = SwordWeapon.GetComponent<Sword>();
+        Bow bow = BowWeapon.GetComponent<Bow>();
+        FireBow fireBow = FireBowWeapon.GetComponent<FireBow>();
 
         items = new Item[]
         {

@@ -7,13 +7,11 @@ public class RouteMovement : MonoBehaviour
     public PlayerMovement playerMovement;
     public List<Transform> leftRouteWaypoints;
     public List<Transform> rightRouteWaypoints;
-    public bool currentWayPointIsRoute;
 
     // Start is called before the first frame update
     private void Start()
     {
         //playerMovement = GetComponent<PlayerMovement>();
-        currentWayPointIsRoute = false;
         Arrows.SetActive(false);
     }
 
@@ -23,10 +21,8 @@ public class RouteMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerMovement.PauseMovement();
-            currentWayPointIsRoute = true;
             Arrows.SetActive(true);
 
-            Debug.Log(currentWayPointIsRoute);
             Debug.Log("Route choice triggered");
         }
     }
@@ -37,14 +33,11 @@ public class RouteMovement : MonoBehaviour
     /// </summary>
     public void TakeLeftRoute()
     {
-        if (currentWayPointIsRoute)
-        {
-            Arrows.SetActive(false);
+        Arrows.SetActive(false);
 
-            playerMovement.InsertWaypoints(leftRouteWaypoints);
-            playerMovement.ResumeMovement();
-            Debug.Log("Took the left route");
-        }
+        playerMovement.InsertWaypoints(leftRouteWaypoints);
+        playerMovement.ResumeMovement();
+        Debug.Log("Took the left route");
     }
 
     /// <summary>
@@ -53,13 +46,10 @@ public class RouteMovement : MonoBehaviour
     /// </summary>
     public void TakeRightRoute()
     {
-        if (currentWayPointIsRoute)
-        {
-            Arrows.SetActive(false);
+        Arrows.SetActive(false);
 
-            playerMovement.InsertWaypoints(rightRouteWaypoints);
-            playerMovement.ResumeMovement();
-            Debug.Log("Took the right route");
-        }
+        playerMovement.InsertWaypoints(rightRouteWaypoints);
+        playerMovement.ResumeMovement();
+        Debug.Log("Took the right route");
     }
 }

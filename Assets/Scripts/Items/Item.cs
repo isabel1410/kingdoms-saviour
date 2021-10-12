@@ -37,6 +37,7 @@ public abstract class Item : MonoBehaviour
         Debug.Log(itemIndex);
         SwitchFrom();
         item.SwitchTo();
+        Debug.Log(itemIndex);
     }
 
     /// <summary>
@@ -45,10 +46,7 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     public virtual void Use()
     {
-        //if (Animator.gameObject.activeSelf)
-        //{
-        //    Animator.SetBool("IsAttacking", true);
-        //}
+        AnimatorStateInfo info = Animator.GetCurrentAnimatorStateInfo(0);
         if (Animator != null)
         {
             Animator.SetBool("IsAttacking", true);
@@ -56,6 +54,10 @@ public abstract class Item : MonoBehaviour
         Ready = false;
         cooldownTimer.Interval = Cooldown;
         cooldownTimer.Start();
+        if (info.IsName("SwordAttack") || info.IsName("BowAttack") || info.IsName("FireBowAttack"))
+        {
+            Animator.SetBool("IsAttacking", false);
+        }
     }
 
     /// <summary>
@@ -86,7 +88,6 @@ public abstract class Item : MonoBehaviour
     {
         cooldownTimer = new Timer();
         cooldownTimer.Elapsed += CooldownTimer_Elapsed;
-        //Animator = GetComponent<Animator>();
     }
 
     private void CooldownTimer_Elapsed(object sender, ElapsedEventArgs e)
