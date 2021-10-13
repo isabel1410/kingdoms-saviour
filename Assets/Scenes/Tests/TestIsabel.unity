@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449921937780535357, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.32
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 1449921937780535357, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: SwitchFromCooldown
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3192045755478652503, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b1b9bef264dee9499d8485360a32fcc, type: 2}
     - target: {fileID: 3934077892632746231, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -482,6 +486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -108.808
       objectReference: {fileID: 0}
+    - target: {fileID: 6285582323109657968, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c392b5918f8610a45bd920628a6342d9, type: 2}
     - target: {fileID: 6399059221279412821, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: Animator
       value: 
@@ -722,6 +730,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8098670069434334237, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6a8a8a98ced2f32448b0d146f74472c0, type: 2}
     - target: {fileID: 8518147126796408682, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: m_Name
       value: SwordWeapon
@@ -2293,7 +2305,6 @@ MonoBehaviour:
   rightRouteWaypoints:
   - {fileID: 582202371}
   - {fileID: 759333488}
-  currentWayPointIsRoute: 0
 --- !u!1 &627661889
 GameObject:
   m_ObjectHideFlags: 0

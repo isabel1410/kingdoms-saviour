@@ -26,14 +26,6 @@ public abstract class Item : MonoBehaviour
 
     public void Switch(Item item, int itemIndex)
     {
-        //if (Animator.gameObject.activeSelf)
-        //{
-        //    Animator.SetInteger("WeaponHolding", itemIndex);
-        //}
-        if (Animator != null)
-        {
-            Animator.SetInteger("WeaponHolding", itemIndex);
-        }
         Debug.Log(itemIndex);
         SwitchFrom();
         item.SwitchTo();
