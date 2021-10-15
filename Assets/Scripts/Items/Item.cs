@@ -38,18 +38,21 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     public virtual void Use()
     {
-        AnimatorStateInfo info = Animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo info = Animator.GetCurrentAnimatorStateInfo(1);
         if (Animator != null)
         {
-            Animator.SetBool("IsAttacking", true);
+            Animator.Play("FireBowAttack");
+            Animator.Play("BowAttack");
+            Animator.Play("SwordAttack");
         }
+
         Ready = false;
         cooldownTimer.Interval = Cooldown;
         cooldownTimer.Start();
-        if (info.IsName("SwordAttack") || info.IsName("BowAttack") || info.IsName("FireBowAttack"))
-        {
-            Animator.SetBool("IsAttacking", false);
-        }
+        //if (info.IsName("SwordAttack") || info.IsName("BowAttack") || info.IsName("FireBowAttack"))
+        //{
+        //    Animator.SetBool("IsAttacking", false);
+        //}
     }
 
     /// <summary>
@@ -60,7 +63,7 @@ public abstract class Item : MonoBehaviour
     {
         //SwitchFromAnimation?.Play();
         Ready = false;
-        cooldownTimer.Interval = SwitchFromCooldown;
+        //cooldownTimer.Interval = SwitchFromCooldown;
         cooldownTimer.Start();
     }
 
