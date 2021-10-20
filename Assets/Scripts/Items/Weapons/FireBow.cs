@@ -21,6 +21,10 @@ public class FireBow : Weapon
         }
 
         base.Use();
+        if (Animator != null)
+        {
+            Animator.Play("FireBowAttack");
+        }
         ////Deal damage to enemy
         //throw new System.NotImplementedException("Deal damage to enemy.");
         Debug.Log("Fire arrow fired");

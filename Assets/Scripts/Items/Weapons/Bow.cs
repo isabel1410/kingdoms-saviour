@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bow : Weapon
 {
     public RaycastHit hit;
+    public GameObject arrow;
 
     public Bow(string name, float damage, float range)
     {
@@ -14,6 +15,12 @@ public class Bow : Weapon
     public override void Use()
     {
         base.Use();
+        if (Animator != null)
+        {
+            Animator.Play("BowAttack");
+        }
+
+
         ////Deal damage to enemy
         //throw new System.NotImplementedException("Deal damage to enemy.");
         Debug.Log("Arrow fired");
