@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    //private string selected;
-    //public RaycastHit hit;
-    //public Camera playerCamera;
-
-
     public Sword(string name, float damage, float range)
     {
         Name = name;
@@ -16,17 +11,18 @@ public class Sword : Weapon
 
     public override void Use()
     {
+        //if (routeMovement.choosingRoute)
+        //{
+        //    Debug.Log("Can't use now");
+        //    return;
+        //}
+
         base.Use();
         if (Animator != null)
         {
             Animator.Play("SwordAttack");
+            Hit();
         }
-        //Deal damage to enemy
-        //throw new System.NotImplementedException("Deal damage to enemy");
         Debug.Log("Sword used!");
-        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        //{
-        //    Debug.Log(hit.transform.name);
-        //}
     }
 }

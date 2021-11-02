@@ -11,6 +11,7 @@ public class ItemController : MonoBehaviour
     public GameObject BowWeapon;
     public GameObject FireBowWeapon;
     public Animator Animator;
+    public bool canUseWeapon;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class ItemController : MonoBehaviour
         BowWeapon.SetActive(false);
         FireBowWeapon.SetActive(false);
         currentItem = items[0];
+
+        canUseWeapon = true;
     }
 
     private void Update()
@@ -68,6 +71,13 @@ public class ItemController : MonoBehaviour
 
     public void UseItem()
     {
-        currentItem.Use();
+        if (!canUseWeapon)
+        {
+            Debug.Log("Can't use now.");
+        }
+        else
+        {
+            currentItem.Use();
+        }
     }
 }

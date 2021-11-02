@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Bow : Weapon
 {
-    public RaycastHit hit;
-    public GameObject arrow;
-
     public Bow(string name, float damage, float range)
     {
         Name = name;
@@ -14,20 +11,18 @@ public class Bow : Weapon
 
     public override void Use()
     {
+        //if (routeMovement.choosingRoute)
+        //{
+        //    Debug.Log("Can't shoot now.");
+        //    return;
+        //}
         base.Use();
         if (Animator != null)
         {
             Animator.Play("BowAttack");
+            Hit();
         }
-
-
-        ////Deal damage to enemy
-        //throw new System.NotImplementedException("Deal damage to enemy.");
         Debug.Log("Arrow fired");
-        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        //{
-        //    Debug.Log(hit.transform.name);
-        //}
     }
 
 }

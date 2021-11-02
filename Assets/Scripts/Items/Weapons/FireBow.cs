@@ -3,8 +3,6 @@ using UnityEngine;
 public class FireBow : Weapon
 {
     public byte Ammo;
-    public RaycastHit hit;
-    //public Camera playerCamera;
 
     public FireBow(string name, float damage, float range)
     {
@@ -17,6 +15,7 @@ public class FireBow : Weapon
     {
         if (Ammo == 0)
         {
+            Debug.Log("No ammo left.");
             return;
         }
 
@@ -24,13 +23,9 @@ public class FireBow : Weapon
         if (Animator != null)
         {
             Animator.Play("FireBowAttack");
+            Hit();
+            Ammo--;
         }
-        ////Deal damage to enemy
-        //throw new System.NotImplementedException("Deal damage to enemy.");
         Debug.Log("Fire arrow fired");
-        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        //{
-        //    Debug.Log(hit.transform.name);
-        //}
     }
 }
