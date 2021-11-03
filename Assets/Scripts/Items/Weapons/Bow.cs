@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bow : Weapon
 {
+    public Rigidbody projectile;
     public Bow(string name, float damage, float range)
     {
         Name = name;
@@ -20,6 +21,14 @@ public class Bow : Weapon
         if (Animator != null)
         {
             Animator.Play("BowAttack");
+
+            Rigidbody clone;
+            clone = Instantiate(projectile, transform.position, transform.rotation);
+
+
+            clone.GetComponent<Rigidbody>().AddForce(clone.transform.forward * 1500);
+
+            clone.GetComponent<Rigidbody>().transform.rotation.SetLookRotation(transform.position + projectile.velocity);
             Hit();
         }
         Debug.Log("Arrow fired");

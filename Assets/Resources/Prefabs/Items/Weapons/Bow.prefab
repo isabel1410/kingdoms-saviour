@@ -52,7 +52,10 @@ MonoBehaviour:
   Name: Bow
   Damage: 1
   Range: 30
-  currentWeapon: {fileID: 4711616145685354660}
+  arrow: {fileID: 3724278238081578652, guid: cbf01b3839e37974da7dd486747fdca1, type: 3}
+  arrowSpawn: {fileID: 0}
+  cam: {fileID: 0}
+  shootForce: 0
 --- !u!95 &-1640576045279200651
 Animator:
   serializedVersion: 3
