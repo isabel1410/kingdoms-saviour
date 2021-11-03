@@ -4,9 +4,15 @@ using UnityEngine.Events;
 public class PlayerInputProcessor : InputProcessor
 {
     public PauseEvent OnPause;
+    public bool paused;
 
     public void OnUseInput(InputAction.CallbackContext context)
     {
+        if (paused)
+        {
+            return;
+        }
+
         if (context.started)
         {
             OnUse.Invoke();
@@ -15,6 +21,11 @@ public class PlayerInputProcessor : InputProcessor
 
     public void OnShieldUseInput(InputAction.CallbackContext context)
     {
+        if (paused)
+        {
+            return;
+        }
+
         if (context.started)
         {
             ShieldUsed = true;
@@ -31,6 +42,11 @@ public class PlayerInputProcessor : InputProcessor
         {
             OnPause.Invoke();
         }
+    }
+
+    public void TogglePause(bool paused)
+    {
+        this.paused = !paused;
     }
 }
 

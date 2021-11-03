@@ -4,8 +4,25 @@ public class WaveController : MonoBehaviour
 {
     public PlayerMovement PlayerMovement;
     public Animator Animator;
+    public GameObject ActivateCollider;
 
     private GameObject enemies;
+    private bool activated;
+
+    private bool areEnemiesDefeated
+    {
+        get
+        {
+            foreach (Transform enemy in enemies.transform)
+            {
+                if (enemy.gameObject.activeSelf)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 
     /// <summary>
     /// Activates the enemies in the wave.
@@ -15,7 +32,8 @@ public class WaveController : MonoBehaviour
         if (Animator != null)
             Animator.SetBool("Triggered", true);
         PlayerMovement.PauseMovement();
-        Debug.Log(name + " activated");
+        activated = true;
+        ActivateCollider.SetActive(false);
     }
 
     /// <summary>
@@ -38,5 +56,14 @@ public class WaveController : MonoBehaviour
         // Enemies won't perform animations on start
         if (Animator != null)
             Animator?.SetBool("Triggered", false);
+    }
+
+    private void Update()
+    {
+        if (activated && areEnemiesDefeated)
+        {
+            activated = false;
+            PlayerMovement.ResumeMovement();
+        }
     }
 }

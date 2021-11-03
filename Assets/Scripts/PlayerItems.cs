@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
     public InputProcessor InputProcessor;
 
+    public List<Item> Items;
+    public uint Gold;
     private string CurrentItem;
 
     private void Start()

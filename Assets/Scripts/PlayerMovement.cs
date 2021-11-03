@@ -4,21 +4,25 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public List<Transform> Waypoints;// Until first choice, after left and right path joined
-    public float Speed;
-    public PlayerInputProcessor InputProcessor;
+    public float MovementSpeed;
+    public float RotationSpeed;
+    //public PlayerInputProcessor InputProcessor;
 
     private int currentWaypoint;// Default = 0, so Start function not needed
-    private float previousSpeed;
+    private float previousMovementSpeed;
+    private float previousRotationSpeed;
 
     public void PauseMovement()
     {
-        previousSpeed = Speed;
-        Speed = 0;
+        previousMovementSpeed = MovementSpeed;
+        previousRotationSpeed = RotationSpeed;
+        MovementSpeed = RotationSpeed = 0;
     }
 
     public void ResumeMovement()
     {
-        Speed = previousSpeed;
+        MovementSpeed = previousMovementSpeed;
+        RotationSpeed = previousRotationSpeed;
     }
 
     /// <summary>
@@ -48,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         // If close enough, get next waypoint
         Transform waypoint = Waypoints[currentWaypoint];
-        if (Vector3.Distance(transform.position, waypoint.position) < 1.5)
+        if (Vector3.Distance(transform.position, waypoint.position) < 0.1)
         // if (transform.position == waypoint.position)
         {
             currentWaypoint++;
@@ -73,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Move towards waypoint
-        transform.position += Speed * Time.deltaTime * transform.forward;
+        transform.position += Time.deltaTime * transform.forward * MovementSpeed;
     }
 
     /// <summary>
@@ -83,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     private void RotateTowardsWaypoint(Transform waypoint)
     {
         var targetRot = Quaternion.LookRotation(waypoint.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 1.5f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 1.5f * Time.deltaTime * RotationSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
             case "WaveActivate":
                 other.GetComponentInParent<WaveController>().Activate();
                 break;
-
         }
     }
 }

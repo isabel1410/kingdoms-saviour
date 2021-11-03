@@ -11,6 +11,8 @@ public abstract class Item : MonoBehaviour
     public float Cooldown;
     public float SwitchFromCooldown;
     public float SwitchToCooldown;
+    public uint Price;
+    public bool AvailableInShop;
 
     [HideInInspector]
     public bool Ready;
@@ -69,6 +71,7 @@ public abstract class Item : MonoBehaviour
 
     private void Start()
     {
+        AvailableInShop = true;
         cooldownTimer = new Timer();
         cooldownTimer.Elapsed += CooldownTimer_Elapsed;
     }
