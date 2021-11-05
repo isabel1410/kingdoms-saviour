@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Sword : Weapon
+public class Sword : MeleeWeapon
 {
     public Sword(string name, float damage, float range)
     {
@@ -11,17 +11,11 @@ public class Sword : Weapon
 
     public override void Use()
     {
-        //if (routeMovement.choosingRoute)
-        //{
-        //    Debug.Log("Can't use now");
-        //    return;
-        //}
-
         base.Use();
         if (Animator != null)
         {
             Animator.Play("SwordAttack");
-            Hit();
+            Hit(Damage);
         }
         Debug.Log("Sword used!");
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireBow : Weapon
+public class FireBow : RangeWeapon
 {
     public byte Ammo;
 
@@ -23,7 +23,7 @@ public class FireBow : Weapon
         if (Animator != null)
         {
             Animator.Play("FireBowAttack");
-            Hit();
+            Hit(Damage);
             Ammo--;
         }
         Debug.Log("Fire arrow fired");

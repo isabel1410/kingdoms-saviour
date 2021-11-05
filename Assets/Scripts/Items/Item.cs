@@ -39,8 +39,8 @@ public abstract class Item : MonoBehaviour
     public virtual void Use()
     {
         Ready = false;
-        cooldownTimer.Interval = Cooldown;
-        cooldownTimer.Start();
+        //cooldownTimer.Interval = Cooldown;
+        //cooldownTimer.Start();
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public abstract class Item : MonoBehaviour
         //SwitchFromAnimation?.Play();
         Ready = false;
         //cooldownTimer.Interval = SwitchFromCooldown;
-        cooldownTimer.Start();
+        //cooldownTimer.Start();
     }
 
     /// <summary>
@@ -63,19 +63,19 @@ public abstract class Item : MonoBehaviour
     {
         //SwitchToAnimation?.Play();
         Ready = false;
-        cooldownTimer.Interval = SwitchToCooldown;
-        cooldownTimer.Start();
+        //cooldownTimer.Interval = SwitchToCooldown;
+        //cooldownTimer.Start();
     }
 
     private void Start()
     {
-        cooldownTimer = new Timer();
-        cooldownTimer.Elapsed += CooldownTimer_Elapsed;
+        //cooldownTimer = new Timer();
+        //cooldownTimer.Elapsed += CooldownTimer_Elapsed;
     }
 
     private void CooldownTimer_Elapsed(object sender, ElapsedEventArgs e)
     {
         Ready = true;
-        cooldownTimer.Stop();
+        //cooldownTimer.Stop();
     }
 }

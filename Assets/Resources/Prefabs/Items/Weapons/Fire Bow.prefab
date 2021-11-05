@@ -53,7 +53,9 @@ MonoBehaviour:
   Name: Fire Bow
   Damage: 2
   Range: 30
-  Ammo: 3
+  projectile: {fileID: 1439751856947831876, guid: 31d45b7a366ef4143b624a26aeca2a2d, type: 3}
+  arrowSpawner: {fileID: 4707635544508750510, guid: eb9da3cee99f1f140bed0c04e462f0d6, type: 3}
+  Ammo: 255
 --- !u!95 &8928046563459197227
 Animator:
   serializedVersion: 3
