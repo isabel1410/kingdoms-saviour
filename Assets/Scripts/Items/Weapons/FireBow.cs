@@ -3,12 +3,12 @@ using UnityEngine;
 public class FireBow : RangeWeapon
 {
     public byte Ammo;
-
-    public FireBow(string name, float damage, float range)
+    public FireBow(string name, float damage, float range, int cooldown)
     {
         Name = name;
         Damage = damage;
         Range = range;
+        Cooldown = cooldown;
     }
 
     public override void Use()
@@ -18,14 +18,10 @@ public class FireBow : RangeWeapon
             Debug.Log("No ammo left.");
             return;
         }
-
         base.Use();
-        if (Animator != null)
-        {
-            Animator.Play("FireBowAttack");
-            Hit(Damage);
-            Ammo--;
-        }
+        Animator.Play("FireBowAttack");
+        Hit(Damage);
+        Ammo--;
         Debug.Log("Fire arrow fired");
     }
 }

@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class Sword : MeleeWeapon
 {
-    public Sword(string name, float damage, float range)
+    public Sword(string name, float damage, float range, int cooldown)
     {
         Name = name;
         Damage = damage;
         Range = range;
+        Cooldown = cooldown;
     }
 
     public override void Use()
     {
         base.Use();
-        if (Animator != null)
-        {
-            Animator.Play("SwordAttack");
-            Hit(Damage);
-        }
+        Animator.Play("SwordAttack");
+        Hit(Damage);
         Debug.Log("Sword used!");
     }
 }

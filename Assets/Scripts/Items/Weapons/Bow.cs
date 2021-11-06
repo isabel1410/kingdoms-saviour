@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class Bow : RangeWeapon
 {
-    public Bow(string name, float damage, float range)
+    public Bow(string name, float damage, float range, int cooldown)
     {
         Name = name;
         Damage = damage;
         Range = range;
+        Cooldown = cooldown;
     }
 
     public override void Use()
     {
         base.Use();
-        if (Animator != null)
-        {
-            Animator.Play("BowAttack");
-            Hit(Damage);
-        }
+        Animator.Play("BowAttack");
+        Hit(Damage);
         Debug.Log("Arrow fired");
     }
 

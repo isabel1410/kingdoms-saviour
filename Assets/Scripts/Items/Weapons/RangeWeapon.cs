@@ -25,7 +25,7 @@ public class RangeWeapon : Weapon
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Range))
         {
-            //Destroy(arrow.gameObject, 0.5f);
+            Destroy(arrow.gameObject, 0.5f);
             Debug.Log(hit.transform.name);
             if (hit.transform.tag == "Enemies")
             {
@@ -34,6 +34,6 @@ public class RangeWeapon : Weapon
                 hit.transform.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
-        //Destroy(arrow.gameObject, 1f);
+        Destroy(arrow.gameObject, 1f);
     }
 }
