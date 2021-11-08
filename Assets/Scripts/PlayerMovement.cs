@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public class PauseMovementEvent : UnityEngine.Events.UnityEvent { }
+
 public class PlayerMovement : MonoBehaviour
 {
     public List<Transform> Waypoints;// Until first choice, after left and right path joined
@@ -11,6 +15,19 @@ public class PlayerMovement : MonoBehaviour
     private int currentWaypoint;// Default = 0, so Start function not needed
     private float previousMovementSpeed;
     private float previousRotationSpeed;
+
+    public void ToggleMovement(bool paused)
+    {
+        if (paused)
+        {
+            PauseMovement();
+        }
+        else
+        {
+            ResumeMovement();
+        }
+
+    }
 
     public void PauseMovement()
     {

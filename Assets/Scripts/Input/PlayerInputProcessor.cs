@@ -3,12 +3,13 @@ using UnityEngine.Events;
 
 public class PlayerInputProcessor : InputProcessor
 {
-    public PauseEvent OnPause;
-    public bool paused;
+    public PauseMovementEvent PauseMovementEvent;
+    public PauseItemsEvent PauseItemsEvent;
+    private bool itemsPaused;
 
     public void OnUseInput(InputAction.CallbackContext context)
     {
-        if (paused)
+        if (itemsPaused)
         {
             return;
         }
@@ -21,7 +22,7 @@ public class PlayerInputProcessor : InputProcessor
 
     public void OnShieldUseInput(InputAction.CallbackContext context)
     {
-        if (paused)
+        if (itemsPaused)
         {
             return;
         }
@@ -40,15 +41,16 @@ public class PlayerInputProcessor : InputProcessor
     {
         if (context.started)
         {
-            OnPause.Invoke();
+            PauseMovementEvent.Invoke();
+            PauseItemsEvent.Invoke();
         }
     }
 
-    public void TogglePause(bool paused)
+    public void ToggleItems(bool paused)
     {
-        this.paused = !paused;
+        itemsPaused = paused;
     }
 }
 
 [System.Serializable]
-public class PauseEvent : UnityEvent { }
+public class PauseItemsEvent : UnityEvent { }

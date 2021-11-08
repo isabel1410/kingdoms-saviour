@@ -9,7 +9,7 @@ public class WaveController : MonoBehaviour
     private GameObject enemies;
     private bool activated;
 
-    private bool areEnemiesDefeated
+    private bool AreEnemiesDefeated
     {
         get
         {
@@ -60,10 +60,19 @@ public class WaveController : MonoBehaviour
 
     private void Update()
     {
-        if (activated && areEnemiesDefeated)
+        if (activated && AreEnemiesDefeated)
         {
             activated = false;
             PlayerMovement.ResumeMovement();
+        }
+    }
+
+    [ContextMenu("Finish wave")]
+    public void FinishWave()
+    {
+        foreach (Transform enemy in enemies.transform)
+        {
+            enemy.gameObject.SetActive(false);
         }
     }
 }

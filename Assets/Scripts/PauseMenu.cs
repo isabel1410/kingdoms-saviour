@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Menu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     public Canvas Hud;
     public Healthbar PlayerHealthbar;
-
-    public MonoBehaviour[] ScriptsToDisableOnPause;
 
     public void ToggleHud(bool visible)
     {

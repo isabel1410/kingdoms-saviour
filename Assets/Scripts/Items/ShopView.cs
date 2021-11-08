@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +7,17 @@ public class ShopView : MonoBehaviour
     public Text NameBox;
     public Text DialogueBox;
     public int TextSpeed;
+    private IEnumerator dialogueCoroutine;
 
     public void RunDialogue(string name, string dialogue)
     {
-        StartCoroutine(DisplayDialogue(name, dialogue));
+        if (dialogueCoroutine != null)
+        {
+            print("Stopping coroutine");
+            StopCoroutine(dialogueCoroutine);
+        }
+        dialogueCoroutine = DisplayDialogue(name, dialogue);
+        StartCoroutine(dialogueCoroutine);
     }
 
     private IEnumerator DisplayDialogue(string name, string dialogue)
@@ -30,10 +36,16 @@ public class ShopView : MonoBehaviour
                     yield return new WaitForSecondsRealtime(20f / TextSpeed);
                     break;
                 case '.':
+                case '!':
+                case '?':
                     yield return new WaitForSecondsRealtime(50f / TextSpeed);
                     break;
-
             }
         }
+    }
+
+    public void ToggleUI(bool visible)
+    {
+        gameObject.SetActive(visible);
     }
 }

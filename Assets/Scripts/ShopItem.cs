@@ -9,23 +9,6 @@ using UnityEngine.UI;
 public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject Outline;
-    public GameObject ArrowUp;
-    public GameObject ArrowDown;
-
-    public void Outline_OnClick()
-    {
-        print("Outline clicked: " + name);
-    }
-
-    public void ArrowUp_OnClick()
-    {
-        print("Up clicked: " + name);
-    }
-
-    public void ArrowDown_OnClick()
-    {
-        print("Down clicked: " + name);
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {

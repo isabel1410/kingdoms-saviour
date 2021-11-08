@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
-    private uint gold;
-    private Item[] aquiredItems;
+    //private uint gold;
+    //private Item[] aquiredItems;
     //private Armor[] aquiredArmor;
 }

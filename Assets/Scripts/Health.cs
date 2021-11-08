@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float maxHealth = 100f;
+    private const float maxHealth = 100f;
     private float currentHealth;
     [SerializeField] Healthbar healthBar;
     [SerializeField] GameObject DeadScene;
