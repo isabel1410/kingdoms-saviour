@@ -24,6 +24,7 @@ public class OrcMilitia : Enemy
         if (waveController.enemiesActivated && Time.time < attackCooldown)
         {
             waveController.Animator.Play("Attack");
+
         }
     }
 
