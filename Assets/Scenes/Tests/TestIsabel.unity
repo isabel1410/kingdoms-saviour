@@ -3644,6 +3644,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemies
       objectReference: {fileID: 0}
+    - target: {fileID: 3753711325760207147, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753711325760207147, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753711325760207147, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753711325760207147, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
 --- !u!1 &1402450121
