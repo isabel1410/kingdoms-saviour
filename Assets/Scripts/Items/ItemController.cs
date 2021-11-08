@@ -34,11 +34,6 @@ public class ItemController : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        //Debug.Log(currentItem);
-    }
-
     public void SwitchToSword()
     {
         SwordWeapon.SetActive(true);
@@ -74,6 +69,7 @@ public class ItemController : MonoBehaviour
 
     public void UseItem()
     {
+        // Checking if item can be used / in cooldown
         if (!canUseWeapon || Time.time < currentItem.nextTimeUse)
         {
             Debug.Log("Can't use now.");

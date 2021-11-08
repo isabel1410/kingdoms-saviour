@@ -5,7 +5,10 @@ using UnityEngine;
 public class OrcMilitia : Enemy
 {
     public GameObject orcMilitia;
-    public WaveController waveController;
+    public Rigidbody projectile;
+    public GameObject arrowSpawner;
+    public Transform target;
+    GameObject player;
 
     public OrcMilitia(float MaxHealth, float EnemySpeed, float AttackDamage, float AttackCooldown)
     {
@@ -15,16 +18,24 @@ public class OrcMilitia : Enemy
         attackCooldown = AttackCooldown;
     }
 
-    private void Start()
+    public override void Attack(GameObject enemy)
     {
+        nextTimeAttack = Time.time + attackCooldown;
+        enemy.gameObject.GetComponent<Animator>().SetBool("CanShoot", true);
 
-    }
-    public override void Attack()
-    {
-        if (waveController.enemiesActivated && Time.time < attackCooldown)
+        // Instantiate arrow towards player
+        Rigidbody arrow = Instantiate(projectile, arrowSpawner.transform.position, transform.rotation);
+        arrow.transform.LookAt(target);
+        arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * 600);
+
+        Debug.Log("Enemy attacking");
+
+        // If arrow hits player..
+        player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        if (arrow.detectCollisions = player)
         {
-            waveController.Animator.Play("Attack");
-
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            Debug.Log("Player hit");
         }
     }
 
@@ -42,7 +53,7 @@ public class OrcMilitia : Enemy
 
     public override void Die(GameObject orc)
     {
-        // For now we'll use SetActive(false) instead of Destroy();
-        orc.SetActive(false);
+        // Play animation when enemy has died
+        orc.gameObject.GetComponent<Animator>().SetBool("EnemyDead", true);
     }
 }

@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public float enemySpeed;
     public float attackDamage;
     public float attackCooldown;
+    public float nextTimeAttack = 0f;
     public enum enemyType
     {
         Melee,
@@ -17,7 +18,7 @@ public abstract class Enemy : MonoBehaviour
 
     public uint goldReward;
 
-    public abstract void Attack();
+    public abstract void Attack(GameObject enemy);
 
     public abstract void TakeDamage(float damage);
 

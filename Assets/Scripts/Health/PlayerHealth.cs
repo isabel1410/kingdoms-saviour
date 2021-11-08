@@ -27,17 +27,18 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+            healthBar.TakeDamage(damage);
         }
         if (currentHealth <= 0)
         {
             DeadScene.SetActive(true);
             UI.SetActive(false);
         }
+        Debug.Log(currentHealth);
     }
 
     public void UseHealthPotion(float health)
     {
-        Debug.Log("Taking damage");
         Debug.Log(currentHealth);
         if (currentHealth + health <= maxHealth)
         {

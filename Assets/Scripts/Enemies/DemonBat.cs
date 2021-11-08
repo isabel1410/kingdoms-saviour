@@ -5,7 +5,7 @@ using UnityEngine;
 public class DemonBat : Enemy
 {
     public GameObject demonBat;
-    public override void Attack()
+    public override void Attack(GameObject enemy)
     {
         throw new System.NotImplementedException();
     }
