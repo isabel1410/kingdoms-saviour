@@ -4,7 +4,7 @@ public class WaveController : MonoBehaviour
 {
     public PlayerMovement PlayerMovement;
     public Animator Animator;
-
+    public bool enemiesActivated;
     private GameObject enemies;
 
     /// <summary>
@@ -14,6 +14,7 @@ public class WaveController : MonoBehaviour
     {
         if (Animator != null)
             Animator.SetBool("Triggered", true);
+        enemiesActivated = true;
         PlayerMovement.PauseMovement();
         Debug.Log(name + " activated");
     }
@@ -34,6 +35,7 @@ public class WaveController : MonoBehaviour
 
         // Hide on start (useful for editing puroposes)
         enemies.SetActive(false);
+        enemiesActivated = false;
 
         // Enemies won't perform animations on start
         if (Animator != null)

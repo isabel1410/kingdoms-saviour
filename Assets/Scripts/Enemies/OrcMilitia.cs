@@ -5,13 +5,26 @@ using UnityEngine;
 public class OrcMilitia : Enemy
 {
     public GameObject orcMilitia;
+    public WaveController waveController;
+
+    public OrcMilitia(float MaxHealth, float EnemySpeed, float AttackDamage, float AttackCooldown)
+    {
+        maxHealth = MaxHealth;
+        enemySpeed = EnemySpeed;
+        attackDamage = AttackDamage;
+        attackCooldown = AttackCooldown;
+    }
+
     private void Start()
     {
 
     }
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        if (waveController.enemiesActivated && Time.time < attackCooldown)
+        {
+            waveController.Animator.Play("Attack");
+        }
     }
 
     public override void TakeDamage(float damage)

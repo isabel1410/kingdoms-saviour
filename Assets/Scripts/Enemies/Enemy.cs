@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public float currentHealth;
     public float enemySpeed;
     public float attackDamage;
+    public float attackCooldown;
     public enum enemyType
     {
         Melee,
