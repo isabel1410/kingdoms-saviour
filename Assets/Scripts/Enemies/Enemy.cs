@@ -18,7 +18,7 @@ public abstract class Enemy : MonoBehaviour
 
     public uint goldReward;
 
-    public abstract void Attack(GameObject enemy);
+    public abstract IEnumerator Attack(GameObject enemy);
 
     public abstract void TakeDamage(float damage);
 

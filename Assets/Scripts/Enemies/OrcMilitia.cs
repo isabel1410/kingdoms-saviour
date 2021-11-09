@@ -18,24 +18,27 @@ public class OrcMilitia : Enemy
         attackCooldown = AttackCooldown;
     }
 
-    public override void Attack(GameObject enemy)
+    public override IEnumerator Attack(GameObject enemy)
     {
-        nextTimeAttack = Time.time + attackCooldown;
-        enemy.gameObject.GetComponent<Animator>().SetBool("CanShoot", true);
-
-        // Instantiate arrow towards player
-        Rigidbody arrow = Instantiate(projectile, arrowSpawner.transform.position, transform.rotation);
-        arrow.transform.LookAt(target);
-        arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * 600);
-
-        Debug.Log("Enemy attacking");
-
-        // If arrow hits player..
-        player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        if (arrow.detectCollisions = player)
+        while (currentHealth > 0)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
-            Debug.Log("Player hit");
+            enemy.gameObject.GetComponent<Animator>().SetBool("CanShoot", true);
+            // Instantiate arrow towards player
+            Rigidbody arrow = Instantiate(projectile, arrowSpawner.transform.position, transform.rotation);
+            arrow.transform.LookAt(target);
+            arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * 600);
+
+            Debug.Log("Enemy attacking");
+
+            // If arrow hits player..
+            player = GameObject.FindGameObjectWithTag("Player").gameObject;
+            if (arrow.detectCollisions = player)
+            {
+                player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+                Debug.Log("Player hit");
+            }
+            enemy.gameObject.GetComponent<Animator>().SetBool("CanShoot", false);
+            yield return new WaitForSecondsRealtime(attackCooldown);
         }
     }
 

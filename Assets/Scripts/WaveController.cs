@@ -20,7 +20,8 @@ public class WaveController : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             enemy.gameObject.GetComponentInChildren<Animator>().SetBool("Triggered", true);
-            enemy.transform.gameObject.GetComponentInChildren<Enemy>().Attack(enemy);
+            StartCoroutine(enemy.transform.gameObject.GetComponentInChildren<Enemy>().Attack(enemy));
+            //enemy.transform.gameObject.GetComponentInChildren<Enemy>().Attack(enemy);
         }
     }
 

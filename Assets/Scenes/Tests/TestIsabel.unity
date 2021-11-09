@@ -4447,7 +4447,7 @@ MonoBehaviour:
   currentHealth: 3
   enemySpeed: 1.5
   attackDamage: 10
-  attackCooldown: 1
+  attackCooldown: 3
   nextTimeAttack: 0
   goldReward: 0
   orcMilitia: {fileID: 1954399833}
@@ -4640,7 +4640,7 @@ MonoBehaviour:
   currentHealth: 3
   enemySpeed: 1.5
   attackDamage: 10
-  attackCooldown: 1
+  attackCooldown: 3
   nextTimeAttack: 0
   goldReward: 0
   orcMilitia: {fileID: 2026543872}

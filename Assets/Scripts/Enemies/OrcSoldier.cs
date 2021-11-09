@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrcSoldier : Enemy
 {
     public GameObject orcSoldier;
-    public override void Attack(GameObject enemy)
+    public override IEnumerator Attack(GameObject enemy)
     {
         throw new System.NotImplementedException();
     }
