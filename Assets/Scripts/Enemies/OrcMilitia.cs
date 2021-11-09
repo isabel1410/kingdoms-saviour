@@ -56,6 +56,7 @@ public class OrcMilitia : Enemy
 
     public override void Die(GameObject orc)
     {
+        base.Die(orc);
         // Play animation when enemy has died
         orc.gameObject.GetComponent<Animator>().SetBool("EnemyDead", true);
     }

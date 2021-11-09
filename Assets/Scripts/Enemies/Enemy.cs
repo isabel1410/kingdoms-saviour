@@ -10,6 +10,8 @@ public abstract class Enemy : MonoBehaviour
     public float attackDamage;
     public float attackCooldown;
     public float nextTimeAttack = 0f;
+    public bool IsDead;
+
     public enum enemyType
     {
         Melee,
@@ -22,5 +24,8 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void TakeDamage(float damage);
 
-    public abstract void Die(GameObject enemy);
+    public virtual void Die(GameObject enemy)
+    {
+        IsDead = true;
+    }
 }

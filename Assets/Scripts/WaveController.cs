@@ -15,7 +15,7 @@ public class WaveController : MonoBehaviour
         {
             foreach (GameObject enemy in enemies)
             {
-                if (enemy.gameObject.activeSelf)
+                if (!enemy.GetComponent<Enemy>().IsDead)
                 {
                     return false;
                 }
@@ -61,7 +61,7 @@ public class WaveController : MonoBehaviour
     {
         //enemies = transform.Find("Enemies").gameObject;
         enemies = GameObject.FindGameObjectsWithTag("Enemies");
-        Debug.Log(enemies);
+        //Debug.Log(enemies);
 
         // Hide on start (useful for editing puroposes)
         foreach (GameObject enemy in enemies)

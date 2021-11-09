@@ -24,6 +24,7 @@ public class DemonBat : Enemy
 
     public override void Die(GameObject demonBat)
     {
+        base.Die(demonBat);
         // For now we'll use SetActive(false) instead of Destroy();
         demonBat.SetActive(false);
     }

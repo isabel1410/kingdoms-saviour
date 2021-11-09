@@ -251,6 +251,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7111100855425776259, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+      propertyPath: MovementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111100855425776259, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+      propertyPath: RotationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111100855425776259, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
       propertyPath: Waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 731581574}
@@ -2118,6 +2126,10 @@ PrefabInstance:
       propertyPath: PlayerMovement
       value: 
       objectReference: {fileID: 1615989297}
+    - target: {fileID: 8102554272573004807, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
+      propertyPath: ActivateCollider
+      value: 
+      objectReference: {fileID: 2051392152}
     - target: {fileID: 8102554272573004807, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
       propertyPath: enemies.Array.size
       value: 4
@@ -4449,6 +4461,7 @@ MonoBehaviour:
   attackDamage: 10
   attackCooldown: 3
   nextTimeAttack: 0
+  IsDead: 0
   goldReward: 0
   orcMilitia: {fileID: 1954399833}
   projectile: {fileID: 5232938082861499738, guid: cbf01b3839e37974da7dd486747fdca1, type: 3}
@@ -4642,6 +4655,7 @@ MonoBehaviour:
   attackDamage: 10
   attackCooldown: 3
   nextTimeAttack: 0
+  IsDead: 0
   goldReward: 0
   orcMilitia: {fileID: 2026543872}
   projectile: {fileID: 5232938082861499738, guid: cbf01b3839e37974da7dd486747fdca1, type: 3}
@@ -4684,6 +4698,11 @@ CapsuleCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b674e3a1704e1fe439d40e2f56984c35, type: 3}
   m_PrefabInstance: {fileID: 2026543871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2051392152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7713715249825298050, guid: b4b124aed67019b4eb52515670f461b4, type: 3}
+  m_PrefabInstance: {fileID: 690305102}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2055697480
 GameObject:

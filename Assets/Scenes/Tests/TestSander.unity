@@ -573,10 +573,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c9ede1e7ec0ea4f8b5b91bec022d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwordWeapon: {fileID: 0}
-  BowWeapon: {fileID: 0}
-  FireBowWeapon: {fileID: 0}
-  Animator: {fileID: 0}
+  SwordWeapon: {fileID: 1998397612}
+  BowWeapon: {fileID: 1864907508}
+  FireBowWeapon: {fileID: 858766983}
+  canUseWeapon: 0
 --- !u!4 &182151794
 Transform:
   m_ObjectHideFlags: 0
@@ -1214,7 +1214,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Size: {x: -1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &379258247
 GameObject:
@@ -2995,6 +2995,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835629340}
   m_CullTransparentMesh: 1
+--- !u!1 &858766983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2663897280895196373, guid: 7fd456cc69a5072479c92417bb81bd9f, type: 3}
+  m_PrefabInstance: {fileID: 863508666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &863508666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7481,11 +7486,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arrows: {fileID: 974763473}
+  crossHair: {fileID: 0}
   playerMovement: {fileID: 863508669}
   leftRouteWaypoints:
   - {fileID: 1594197900}
   rightRouteWaypoints:
   - {fileID: 600257099}
+  itemController: {fileID: 182151793}
 --- !u!65 &1949000026
 BoxCollider:
   m_ObjectHideFlags: 0
