@@ -10,7 +10,7 @@ public class ItemController : MonoBehaviour
     public GameObject SwordWeapon;
     public GameObject BowWeapon;
     public GameObject FireBowWeapon;
-    public Animator Animator;
+    public bool canUseWeapon;
 
     private void Start()
     {
@@ -29,11 +29,9 @@ public class ItemController : MonoBehaviour
         BowWeapon.SetActive(false);
         FireBowWeapon.SetActive(false);
         currentItem = items[0];
-    }
-
-    private void Update()
-    {
-        //Debug.Log(currentItem);
+        currentItem.Ready = true;
+        canUseWeapon = true;
+        
     }
 
     public void SwitchToSword()
@@ -43,6 +41,7 @@ public class ItemController : MonoBehaviour
         FireBowWeapon.SetActive(false);
         currentItem.Switch(items[0], 1);
         currentItem = items[0];
+        currentItem.Ready = true;
         Debug.Log("Sword selected!");
     }
 
@@ -53,6 +52,7 @@ public class ItemController : MonoBehaviour
         FireBowWeapon.SetActive(false);
         currentItem.Switch(items[1], 2);
         currentItem = items[1];
+        currentItem.Ready = true;
         Debug.Log("Bow selected!");
     }
 
@@ -63,11 +63,22 @@ public class ItemController : MonoBehaviour
         FireBowWeapon.SetActive(true);
         currentItem.Switch(items[2], 3);
         currentItem = items[2];
+        currentItem.Ready = true;
         Debug.Log("Fire bow selected!");
     }
 
     public void UseItem()
     {
-        currentItem.Use();
+        // Checking if item can be used / in cooldown
+        if (!canUseWeapon || Time.time < currentItem.nextTimeUse)
+        {
+            Debug.Log("Can't use now.");
+            return;
+        }
+        if (Time.time > currentItem.nextTimeUse)
+        {
+            currentItem.nextTimeUse = Time.time + currentItem.Cooldown;
+            currentItem.Use();
+        }
     }
 }

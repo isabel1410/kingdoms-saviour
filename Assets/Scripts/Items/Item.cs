@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Timers;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public abstract class Item : MonoBehaviour
 
     //public Animation SwitchFromAnimation;
     //public Animation SwitchToAnimation;
+    public bool inCooldown = false;
     public float Cooldown;
+    public float nextTimeUse = 0f;
     public float SwitchFromCooldown;
     public float SwitchToCooldown;
     public uint Price;
@@ -18,13 +21,17 @@ public abstract class Item : MonoBehaviour
 
     protected Timer cooldownTimer;
 
+    private void Start()
+    {
+        Ready = true;
+    }
+
     /// <summary>
     /// Switches from <paramref name="fromItem"/> to <paramref name="toItem"/>.
     /// Plays animations and starts switch cooldown.
     /// </summary>
     /// <param name="fromItem"></param>
     /// <param name="item"></param>
-
     public void Switch(Item item, int itemIndex)
     {
         Debug.Log(itemIndex);
@@ -40,8 +47,6 @@ public abstract class Item : MonoBehaviour
     public virtual void Use()
     {
         Ready = false;
-        cooldownTimer.Interval = Cooldown;
-        cooldownTimer.Start();
     }
 
     /// <summary>
@@ -53,7 +58,7 @@ public abstract class Item : MonoBehaviour
         //SwitchFromAnimation?.Play();
         Ready = false;
         //cooldownTimer.Interval = SwitchFromCooldown;
-        cooldownTimer.Start();
+        //cooldownTimer.Start();
     }
 
     /// <summary>
@@ -64,19 +69,13 @@ public abstract class Item : MonoBehaviour
     {
         //SwitchToAnimation?.Play();
         Ready = false;
-        cooldownTimer.Interval = SwitchToCooldown;
-        cooldownTimer.Start();
-    }
-
-    private void Start()
-    {
-        cooldownTimer = new Timer();
-        cooldownTimer.Elapsed += CooldownTimer_Elapsed;
+        //cooldownTimer.Interval = SwitchToCooldown;
+        //cooldownTimer.Start();
     }
 
     private void CooldownTimer_Elapsed(object sender, ElapsedEventArgs e)
     {
         Ready = true;
-        cooldownTimer.Stop();
+        //cooldownTimer.Stop();
     }
 }

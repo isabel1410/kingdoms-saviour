@@ -6,14 +6,14 @@ public class WaveController : MonoBehaviour
     public Animator Animator;
     public GameObject ActivateCollider;
 
-    private GameObject enemies;
+    private GameObject[] enemies;
     private bool activated;
 
     private bool AreEnemiesDefeated
     {
         get
         {
-            foreach (Transform enemy in enemies.transform)
+            foreach (GameObject enemy in enemies)
             {
                 if (enemy.gameObject.activeSelf)
                 {
@@ -29,11 +29,18 @@ public class WaveController : MonoBehaviour
     /// </summary>
     public void Activate()
     {
-        if (Animator != null)
-            Animator.SetBool("Triggered", true);
         PlayerMovement.PauseMovement();
         activated = true;
         ActivateCollider.SetActive(false);
+        Debug.Log(name + " activated");
+
+        // Each enemy triggers and will start to attack
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.gameObject.GetComponentInChildren<Animator>().SetBool("Triggered", true);
+            StartCoroutine(enemy.transform.gameObject.GetComponentInChildren<Enemy>().Attack(enemy));
+            //enemy.transform.gameObject.GetComponentInChildren<Enemy>().Attack(enemy);
+        }
     }
 
     /// <summary>
@@ -41,21 +48,29 @@ public class WaveController : MonoBehaviour
     /// </summary>
     public void Load()
     {
-        enemies.SetActive(true);
+        // Set every enemy active
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.SetActive(true);
+        }
         Debug.Log(name + " loaded");
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        enemies = transform.Find("Enemies").gameObject;
+        //enemies = transform.Find("Enemies").gameObject;
+        enemies = GameObject.FindGameObjectsWithTag("Enemies");
+        Debug.Log(enemies);
 
         // Hide on start (useful for editing puroposes)
-        enemies.SetActive(false);
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.SetActive(false);
 
-        // Enemies won't perform animations on start
-        if (Animator != null)
-            Animator?.SetBool("Triggered", false);
+            // Enemies won't perform animations on start
+            enemy.gameObject.GetComponentInChildren<Animator>().SetBool("Triggered", false);
+        }
     }
 
     private void Update()
@@ -70,7 +85,7 @@ public class WaveController : MonoBehaviour
     [ContextMenu("Finish wave")]
     public void FinishWave()
     {
-        foreach (Transform enemy in enemies.transform)
+        foreach (GameObject enemy in enemies)
         {
             enemy.gameObject.SetActive(false);
         }

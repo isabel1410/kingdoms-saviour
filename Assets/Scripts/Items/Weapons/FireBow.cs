@@ -1,36 +1,27 @@
 using UnityEngine;
 
-public class FireBow : Weapon
+public class FireBow : RangeWeapon
 {
     public byte Ammo;
-    public RaycastHit hit;
-    //public Camera playerCamera;
-
-    public FireBow(string name, float damage, float range)
+    public FireBow(string name, float damage, float range, int cooldown)
     {
         Name = name;
         Damage = damage;
         Range = range;
+        Cooldown = cooldown;
     }
 
     public override void Use()
     {
         if (Ammo == 0)
         {
+            Debug.Log("No ammo left.");
             return;
         }
-
         base.Use();
-        if (Animator != null)
-        {
-            Animator.Play("FireBowAttack");
-        }
-        ////Deal damage to enemy
-        //throw new System.NotImplementedException("Deal damage to enemy.");
+        Animator.Play("FireBowAttack");
+        Hit(Damage);
+        Ammo--;
         Debug.Log("Fire arrow fired");
-        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        //{
-        //    Debug.Log(hit.transform.name);
-        //}
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 public class RouteMovement : MonoBehaviour
 {
     public GameObject Arrows;
+    public Canvas crossHair;
     public PlayerMovement playerMovement;
     public List<Transform> leftRouteWaypoints;
     public List<Transform> rightRouteWaypoints;
+    public ItemController itemController;
 
     // Start is called before the first frame update
     private void Start()
@@ -20,8 +22,11 @@ public class RouteMovement : MonoBehaviour
         // Show arrows when player enters boxcollider
         if (other.gameObject.CompareTag("Player"))
         {
+            itemController.canUseWeapon = false;
+            Cursor.visible = true;
             playerMovement.PauseMovement();
             Arrows.SetActive(true);
+            crossHair.enabled = false;
 
             Debug.Log("Route choice triggered");
         }
@@ -33,8 +38,10 @@ public class RouteMovement : MonoBehaviour
     /// </summary>
     public void TakeLeftRoute()
     {
+        itemController.canUseWeapon = true;
         Arrows.SetActive(false);
-
+        Cursor.visible = false;
+        crossHair.enabled = true;
         playerMovement.InsertWaypoints(leftRouteWaypoints);
         playerMovement.ResumeMovement();
         Debug.Log("Took the left route");
@@ -46,8 +53,10 @@ public class RouteMovement : MonoBehaviour
     /// </summary>
     public void TakeRightRoute()
     {
+        itemController.canUseWeapon = true;
         Arrows.SetActive(false);
-
+        Cursor.visible = false;
+        crossHair.enabled = true;
         playerMovement.InsertWaypoints(rightRouteWaypoints);
         playerMovement.ResumeMovement();
         Debug.Log("Took the right route");

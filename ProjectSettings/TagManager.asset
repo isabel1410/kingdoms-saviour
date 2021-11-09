@@ -8,6 +8,9 @@ TagManager:
   - WaveLoad
   - RouteTakePoint
   - RouteChoiceArrows
+  - Enemies
+  - Arrow
+  - FireArrow
   layers:
   - Default
   - TransparentFX

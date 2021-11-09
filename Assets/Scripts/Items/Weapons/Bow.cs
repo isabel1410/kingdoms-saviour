@@ -1,33 +1,21 @@
 using UnityEngine;
 
-public class Bow : Weapon
+public class Bow : RangeWeapon
 {
-    public RaycastHit hit;
-    public GameObject arrow;
-
-    public Bow(string name, float damage, float range)
+    public Bow(string name, float damage, float range, int cooldown)
     {
         Name = name;
         Damage = damage;
         Range = range;
+        Cooldown = cooldown;
     }
 
     public override void Use()
     {
         base.Use();
-        if (Animator != null)
-        {
-            Animator.Play("BowAttack");
-        }
-
-
-        ////Deal damage to enemy
-        //throw new System.NotImplementedException("Deal damage to enemy.");
+        Animator.Play("BowAttack");
+        Hit(Damage);
         Debug.Log("Arrow fired");
-        //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Range))
-        //{
-        //    Debug.Log(hit.transform.name);
-        //}
     }
 
 }
